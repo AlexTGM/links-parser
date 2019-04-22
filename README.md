@@ -3,13 +3,13 @@
 To run the app you should to restore nuget packages and start the server. As default it starts on 5000 port.
 To test the app you should send POST request (POST: http://localhost:5000) with the following body:
 
-```{
+`{
   "url: "url you want to parse",
   "maxDepth": "how much pages you want to parse",
   "ContentValidationRules": "rules which depends on content response headers",
 	"ResponseValidationRules": "rules which depends on response headers",
 	"parsingRules": "parsing rules"
-}```
+}`
 
 At this moment you can use:
 
@@ -28,17 +28,17 @@ to combine the rules sets you should join them with `;`: `"parsingRules": "tags:
 
 *Example*
 
-```{
+`{
 	"url": "https://nytimes.com",
 	"ContentValidationRules": "ContentValidationLengthRule:100,100000000",
 	"ResponseValidationRules": "ServerValidationRule:nginx",
 	"maxDepth": 1,
 	"parsingRules": "tags:img;exclude:jpg;include:opinion"
-}```
+}`
 
 this will return the list of non-jpg images from http://nytimes.com
 
-```{
+`{
     "page": "https://nytimes.com/",
     "links": [
         "https://static01.nyt.com/images/2018/04/02/opinion/charles-m-blow/charles-m-blow-thumbLarge.png?quality=75&auto=webp&disable=upscale",
@@ -47,4 +47,4 @@ this will return the list of non-jpg images from http://nytimes.com
         "https://static01.nyt.com/images/2018/07/12/opinion/maeve-higgins/maeve-higgins-thumbLarge.png?quality=75&auto=webp&disable=upscale"
     ],
     "pages": null
-}```
+}`
